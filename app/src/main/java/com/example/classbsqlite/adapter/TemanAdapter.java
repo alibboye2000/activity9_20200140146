@@ -1,8 +1,7 @@
 package com.example.classbsqlite.adapter;
 
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Paint;
-import android.service.controls.Control;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,10 +9,8 @@ import android.view.ViewGroup;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.processor.Context;
 
 import com.example.classbsqlite.MainActivity;
 import com.example.classbsqlite.R;
@@ -44,23 +41,22 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
 
     @Override
     public void onBindViewHolder(TemanAdapter.TemanViewHolder holder, int position) {
-        String nm, tlp,nma,id;
+        String nm, tlp, nma, id;
 
         id = listData.get(position).getId();
-        nma = listData.get(position).getNama();
         nm = listData.get(position).getNama();
         tlp = listData.get(position).getTelpon();
         DBController db = new DBController(control);
 
-        holder.namaTxtView.setTextSize(30);
+        holder.namaTxt.setTextSize(30);
         holder.namaTxt.setText(nm);
         holder.telponTxt.setText(tlp);
 
-        holder.card.setOnLongClic(new View.OnLongClickListener() {
+        holder.cardku.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(control, holder.card);
-                PopupMenu.inflate(R.menu.popup_menu);
+                PopupMenu popupMenu = new PopupMenu(control, holder.cardku);
+                popupMenu.inflate(R.menu.popup_menu);
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
@@ -68,7 +64,7 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
                             case R.id.mnEdit:
                                 Intent i = new Intent(control, edit_teman.class);
                                 i.putExtra("id", id);
-                                i.putExtra("nama",nma);
+                                i.putExtra("nama",nm);
                                 i.putExtra("telpon",tlp);
                                 control.startActivity(i);
                                 break;
@@ -92,22 +88,21 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
 
     }
 
+
     @Override
-    public int getItemCount() {
-        return (listData != null )? listData.size() :0;
+    public  int getItemCount() {
+        return (listData != null)?listData.size() : 0;
     }
 
-    public class TemanViewHolder extends RecyclerView.ViewHolder {
+    public class  TemanViewHolder extends RecyclerView.ViewHolder{
 
-        public int card;
-        private CardView cardku;
-        private TextView namaTxtView, namaTxt, telponTxt;
-
-        public TemanViewHolder(View view) {
-            super(view);
-            cardku=(CardView) view.findViewById(R.id.Kartuku);
-            namaTxt=(TextView) view.findViewById(R.id.textNama);
-            telponTxt=(TextView)view.findViewById(R.id.textTelpon);
-        }
+    private  CardView cardku;
+    private TextView namaTxt,telponTxt;
+    public TemanViewHolder(View view) {
+        super(view);
+        cardku = (CardView) view.findViewById(R.id.cardku);
+        namaTxt = (TextView) view.findViewById(R.id.textNama);
+        telponTxt = (TextView) view.findViewById(R.id.textTelpon);
+    }
     }
 }

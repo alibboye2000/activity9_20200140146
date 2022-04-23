@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="cardku" type="id" />
+    <item name="recyclerView" type="id" />
+    <item name="floatingBtn" type="id" />
+</resources>
