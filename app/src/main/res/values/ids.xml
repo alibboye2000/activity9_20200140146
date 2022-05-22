@@ -3,4 +3,6 @@
     <item name="cardku" type="id" />
     <item name="recyclerView" type="id" />
     <item name="floatingBtn" type="id" />
+    <item name="edTelpon" type="id" />
+    <item name="btnSimpan" type="id" />
 </resources>

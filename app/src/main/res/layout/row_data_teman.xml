@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:andriod="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
     android:orientation="vertical"
-    andriod:id="@+id/Kartuku" >
+    andriod:id="@+id/cardku"
+    card_view:cardElevetion="3dp"
+    andriod:cardCornerRadius="5dp"
+    andriod:cardUseCompatPadding="true">
 
 
 
@@ -17,13 +21,15 @@
         android:id="@+id/textNama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_marginLeft="10dp"
+        android:text="TextView" />
 
     <TextView
         android:id="@+id/textTelpon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_marginLeft="10dp"
+        android:text="TextView" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
