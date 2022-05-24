@@ -134,7 +134,7 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
                 Log.d(TAG, "Respon: " + response.toString());
                 try {
                     JSONObject jobj = new JSONObject(response);
-                    success[0] = jobj.getInt(TAG_SUCCESS);
+                    sukses[0] = jobj.getInt(TAG_SUCCESS);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
